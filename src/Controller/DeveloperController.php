@@ -2,27 +2,30 @@
 
 namespace App\Controller;
 
-use App\Repository\DeveloperRepository;
+use App\Entity\Developer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DeveloperController extends AbstractController
 {
-    private $developerRepository;
-
-    public function __construct(DeveloperRepository $developerRepository)
-    {
-        $this->developerRepository = $developerRepository;
-    }
 
     /**
-     * @Route("/developer", name="developer")
+     * @param $level
+     * @return object[]
      */
-    public function index()
+    public function level($level)
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/DeveloperController.php',
-        ]);
+        $repository = $this->getDoctrine()->getRepository(Developer::class);
+        $list = $repository->findBy(['level' => (int) $level]);
+
+        $response = [];
+        foreach ($list as $value) {
+            $response = [
+                'id' => $value->getId(),
+                'level' => $value->getLevel()
+            ];
+        }
+
+       return new JsonResponse($response);
     }
 }

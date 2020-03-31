@@ -1,3 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+developers_get_by_level:
+  path:       /api/v1/developers/{level}
+  controller: App\Controller\DeveloperController::level
+  methods:    GET|HEAD
+
+fetch_tasks:
+  path:       /api/v1/tasks/fetch
+  controller: App\Controller\TaskController::fetch
+  methods:    POST

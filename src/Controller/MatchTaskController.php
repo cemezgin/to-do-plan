@@ -3,16 +3,17 @@
 namespace App\Controller;
 
 use App\Repository\MatchTaskRepository;
+use App\Service\MatchTaskService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MatchTaskController extends AbstractController
 {
-    private $matchTaskRepository;
+    private $matchTaskService;
 
-    public function __construct(MatchTaskRepository $matchTaskRepository)
+    public function __construct(MatchTaskService $matchTaskService)
     {
-        $this->matchTaskRepository = $matchTaskRepository;
+        $this->matchTaskService = $matchTaskService;
     }
 
     /**

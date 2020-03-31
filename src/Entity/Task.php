@@ -26,6 +26,11 @@ class Task
      */
     private $duration;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $typeId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Task
     public function setDuration(int $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getTypeId(): ?string
+    {
+        return $this->typeId;
+    }
+
+    public function setTypeId(string $typeId): self
+    {
+        $this->typeId = $typeId;
 
         return $this;
     }

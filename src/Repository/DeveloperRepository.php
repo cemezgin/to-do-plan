@@ -12,18 +12,18 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Developer[]    findAll()
  * @method Developer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DeveloperRepository extends ServiceEntityRepository
+class DeveloperRepository extends ServiceEntityRepository implements DeveloperRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Developer::class);
     }
 
-    // /**
-    //  * @return Developer[] Returns an array of Developer objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param $value
+     * @return mixed
+     */
+    public function findByDeveloperLevel($value)
     {
         return $this->createQueryBuilder('d')
             ->andWhere('d.exampleField = :val')
@@ -34,7 +34,6 @@ class DeveloperRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Developer
