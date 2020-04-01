@@ -24,7 +24,7 @@ php bin/console app:fetch
 ```
 #### Fetch plans from providers via API Request
 ```
-http://127.0.0.1:8000/api/v1/tasks/fetch
+[POST] http://127.0.0.1:8000/api/v1/tasks/fetch
 ```
 #### Get planned tasks for weeks via command
 ```
@@ -32,7 +32,7 @@ php bin/console app:show-plan
 ```
 #### Get planned tasks for weeks via API Request
 ```
-[POST] http://127.0.0.1:8000/api/v1/tasks
+[GET] http://127.0.0.1:8000/api/v1/tasks
 ```
 #### Serve
 ```
