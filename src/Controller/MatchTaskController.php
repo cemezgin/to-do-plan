@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\MatchTaskRepository;
 use App\Service\MatchTaskService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MatchTaskController extends AbstractController
@@ -17,9 +18,9 @@ class MatchTaskController extends AbstractController
     }
 
     /**
-     * @Route("/match/task", name="match_task")
+     * @return JsonResponse
      */
-    public function index()
+    public function match()
     {
         $this->matchTaskService->matchDuration($this->getDoctrine()->getManager());
         return $this->json([

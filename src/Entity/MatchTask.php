@@ -18,11 +18,15 @@ class MatchTask
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="Task")
+     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
      */
     private $task_id;
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="Developer")
+     * @ORM\JoinColumn(name="developer_id", referencedColumnName="id")
      */
     private $developer_id;
 

@@ -15,11 +15,6 @@ class DeveloperService
         $this->developerRepository = $developerRepository;
     }
 
-    public function getByLevel($level)
-    {
-        return $this->developerRepository->findByDeveloperLevel($level);
-    }
-
     /**
      * @return Developer[]
      */

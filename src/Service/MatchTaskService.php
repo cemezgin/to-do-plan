@@ -18,7 +18,7 @@ class MatchTaskService
         $this->taskService = $taskService;
     }
 
-    public function group()
+    private function group()
     {
         $levelList = [];
         foreach ($this->developerService->getAll() as $developer) {
@@ -40,7 +40,6 @@ class MatchTaskService
                     $matchTask->setDeveloperId($developerId);
                     $objectManager->persist($matchTask);
                     $objectManager->flush();
-                    echo $duration. PHP_EOL;
 
                     if ($duration === DeveloperService::WEEKLY_DEVELOPER_DURATION) {
                         continue;

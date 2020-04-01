@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200331194838 extends AbstractMigration
+final class Version20200401003521 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -23,16 +23,17 @@ final class Version20200331194838 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE developer (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE task (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL, duration INT NOT NULL, type_id VARCHAR(255) NOT NULL, PRIMARY KEY(id), UNIQUE (type_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE match_task (id INT AUTO_INCREMENT NOT NULL, task_id INT NOT NULL, developer_id INT NOT NULL, PRIMARY KEY(id),
-                            FOREIGN KEY (task_id) REFERENCES task(id), FOREIGN KEY (developer_id) REFERENCES developer(id)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE match_task (id INT AUTO_INCREMENT NOT NULL, task_id INT NOT NULL, developer_id INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE task (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL, duration INT NOT NULL, type_id VARCHAR(255) NOT NULL, PRIMARY KEY(id), UNIQUE(type_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
 
-        $this->addSql('INSERT INTO developer(level) VALUES (1)');
-        $this->addSql('INSERT INTO developer(level) VALUES (2)');
-        $this->addSql('INSERT INTO developer(level) VALUES (3)');
-        $this->addSql('INSERT INTO developer(level) VALUES (4)');
-        $this->addSql('INSERT INTO developer(level) VALUES (5)');
+        $this->addSql('ALTER TABLE match_task ADD FOREIGN KEY (developer_id) REFERENCES developer(id)');
+        $this->addSql('ALTER TABLE match_task ADD FOREIGN KEY (task_id) REFERENCES task(id)');
+
+        $this->addSql('INSERT INTO developer(level) values (1)');
+        $this->addSql('INSERT INTO developer(level) values (2)');
+        $this->addSql('INSERT INTO developer(level) values (3)');
+        $this->addSql('INSERT INTO developer(level) values (4)');
+        $this->addSql('INSERT INTO developer(level) values (5)');
     }
 
     public function down(Schema $schema) : void

@@ -7,3 +7,8 @@ fetch_tasks:
   path:       /api/v1/tasks/fetch
   controller: App\Controller\TaskController::fetch
   methods:    POST
+
+match_tasks:
+  path:       /api/v1/tasks/match
+  controller: App\Controller\MatchTaskController::match
+  methods:    POST

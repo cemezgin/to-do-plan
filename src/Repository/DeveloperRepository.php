@@ -18,32 +18,4 @@ class DeveloperRepository extends ServiceEntityRepository implements DeveloperRe
     {
         parent::__construct($registry, Developer::class);
     }
-
-    /**
-     * @param $value
-     * @return mixed
-     */
-    public function findByDeveloperLevel($value)
-    {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-
-    /*
-    public function findOneBySomeField($value): ?Developer
-    {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
