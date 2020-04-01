@@ -13,11 +13,6 @@ composer install
  php bin/console doctrine:migrations:migrate
 ```
 
-#### For DB Creation
-```
- php bin/console doctrine:database:create
- php bin/console doctrine:migrations:migrate
-```
 #### Fetch plans from providers via command
 ```
 php bin/console app:fetch
