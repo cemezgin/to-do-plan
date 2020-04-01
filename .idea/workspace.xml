@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f63ef34c-6530-453a-ab68-00c3bc55ccb3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/DeveloperService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/MatchTaskService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/to-do-match.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/to-do-match.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DeveloperController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DeveloperController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200331141622.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DeveloperRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DeveloperRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MatchTaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MatchTaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TaskRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/DeveloperService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/DeveloperService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/MatchTaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MatchTaskService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +101,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../demo" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
+  <component name="RunManager">
+    <configuration name="MatchTaskService.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/to-do-match/Service/MatchTaskService.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.MatchTaskService.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -122,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585661574945</updated>
-      <workItem from="1585661576397" duration="25842000" />
+      <workItem from="1585661576397" duration="29731000" />
     </task>
     <servers />
   </component>
@@ -142,6 +141,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585690322678" />
+    <state width="661" height="179" key="GridCell.Tab.0.bottom" timestamp="1585698750085">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585698750085" />
+    <state width="661" height="179" key="GridCell.Tab.0.center" timestamp="1585698750085">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585698750085" />
+    <state width="661" height="179" key="GridCell.Tab.0.left" timestamp="1585698750084">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585698750084" />
+    <state width="661" height="179" key="GridCell.Tab.0.right" timestamp="1585698750085">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="661" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585698750085" />
     <state x="429" y="178" key="NewPhpClassDialog" timestamp="1585694432424">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

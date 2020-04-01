@@ -21,9 +21,9 @@ class MatchTaskController extends AbstractController
      */
     public function index()
     {
+        $this->matchTaskService->matchDuration($this->getDoctrine()->getManager());
         return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/MatchTaskController.php',
+            'message' => 'Match successful.'
         ]);
     }
 }

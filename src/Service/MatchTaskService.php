@@ -2,6 +2,9 @@
 
 namespace App\Service;
 
+use App\Entity\MatchTask;
+use Doctrine\Persistence\ObjectManager;
+
 class MatchTaskService
 {
     private $developerService;
@@ -19,9 +22,34 @@ class MatchTaskService
     {
         $levelList = [];
         foreach ($this->developerService->getAll() as $developer) {
-            $levelList[$developer->getLevel()][] = $this->taskService->getByLevel($developer->getLevel());
+            $levelList[$developer->getId()] = $this->taskService->getByLevel($developer->getLevel());
         }
 
         return $levelList;
+    }
+
+    public function matchDuration(ObjectManager $objectManager)
+    {
+        foreach ($this->group() as $developerId => $value) {
+            $duration = 0;
+            foreach ($value as $task) {
+                $duration += $task['duration'];
+                if ($duration <= DeveloperService::WEEKLY_DEVELOPER_DURATION) {
+                    $matchTask = new MatchTask();
+                    $matchTask->setTaskId($task['id']);
+                    $matchTask->setDeveloperId($developerId);
+                    $objectManager->persist($matchTask);
+                    $objectManager->flush();
+                    echo $duration. PHP_EOL;
+
+                    if ($duration === DeveloperService::WEEKLY_DEVELOPER_DURATION) {
+                        continue;
+                    }
+
+                } elseif ($duration > DeveloperService::WEEKLY_DEVELOPER_DURATION) {
+                    $duration -= $task['duration'];
+                }
+            }
+        }
     }
 }

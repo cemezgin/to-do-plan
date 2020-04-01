@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 
 /**
  * @method Task|null find($id, $lockMode = null, $lockVersion = null)
@@ -28,9 +29,9 @@ class TaskRepository extends ServiceEntityRepository implements TaskRepositoryIn
         return $this->createQueryBuilder('t')
             ->andWhere('t.level = :val')
             ->setParameter('val', $level)
-            ->orderBy('t.id', 'ASC')
+            ->orderBy('t.duration', 'DESC')
             ->getQuery()
-            ->getResult()
+            ->getResult(Query::HYDRATE_ARRAY)
         ;
     }
 
