@@ -30,7 +30,7 @@ http://127.0.0.1:8000/api/v1/tasks/fetch
 ```
 php bin/console app:show-plan
 ```
-####Get planned tasks for weeks via API Request
+#### Get planned tasks for weeks via API Request
 ```
 [POST] http://127.0.0.1:8000/api/v1/tasks
 ```
