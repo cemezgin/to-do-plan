@@ -14,23 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class MatchTaskController extends AbstractController
 {
     private $matchTaskService;
-    private $entityManager;
 
-    public function __construct(MatchTaskService $matchTaskService, EntityManagerInterface $entityManager)
+    public function __construct(MatchTaskService $matchTaskService)
     {
         $this->matchTaskService = $matchTaskService;
-        $this->entityManager = $entityManager;
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    public function match()
-    {
-        $this->matchTaskService->matchDuration($this->getDoctrine()->getManager());
-        return $this->json([
-            'message' => 'Match successful.'
-        ]);
     }
 
     /**
@@ -38,18 +25,6 @@ class MatchTaskController extends AbstractController
      */
     public function index()
     {
-
-        $list = $this->matchTaskService->matchDuration($this->getDoctrine()->getManager());
-
-        $response = [];
-//        foreach ($list as $value) {
-//            $response[] = [
-//                'task_type' => $value->getTask()->getTypeId(),
-//                'duration' => $value->getTask()->getDuration(),
-//                'developer_id' => $value->getDeveloperId()
-//            ];
-//        }
-
-        return new JsonResponse($list);
+        return new JsonResponse($this->matchTaskService->matchDuration());
     }
 }

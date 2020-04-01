@@ -28,7 +28,7 @@ class MatchTaskService
         return $levelList;
     }
 
-    public function matchDuration(ObjectManager $objectManager)
+    public function matchDuration()
     {
         $matchTask = [];
 
@@ -46,12 +46,6 @@ class MatchTaskService
                         'duration' => $task['duration'],
                         'week' => $week
                     ];
-//                    $matchTask = new MatchTask();
-//                    $matchTask->setTaskId($task['id']);
-//                    $matchTask->setDeveloperId($developerId);
-//                    $matchTask->setWeek($week);
-//                    $objectManager->persist($matchTask);
-//                    $objectManager->flush();
 
                     if ($duration === DeveloperService::WEEKLY_DEVELOPER_DURATION) {
                         $duration = 0;
