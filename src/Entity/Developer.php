@@ -15,6 +15,11 @@ class Developer
      * @ORM\Column(type="integer")
      */
     private $id;
+//
+//        /**
+//     * @ORM\OneToOne(targetEntity="MatchTask", mappedBy="developer_id")
+//     */
+//    private $matchTask;
 
     /**
      * @ORM\Column(type="integer")

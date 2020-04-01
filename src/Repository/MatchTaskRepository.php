@@ -3,8 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\MatchTask;
+use App\Entity\Task;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\Join;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * @method MatchTask|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,32 +24,15 @@ class MatchTaskRepository extends ServiceEntityRepository
         parent::__construct($registry, MatchTask::class);
     }
 
-    // /**
-    //  * @return MatchTask[] Returns an array of MatchTask objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return MatchTask[]
+     */
+    public function getWithRelations()
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
+            ->join(Task::class,'t')
             ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?MatchTask
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

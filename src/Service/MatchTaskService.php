@@ -32,17 +32,20 @@ class MatchTaskService
     {
         foreach ($this->group() as $developerId => $value) {
             $duration = 0;
+            $week = 1;
             foreach ($value as $task) {
                 $duration += $task['duration'];
                 if ($duration <= DeveloperService::WEEKLY_DEVELOPER_DURATION) {
                     $matchTask = new MatchTask();
                     $matchTask->setTaskId($task['id']);
                     $matchTask->setDeveloperId($developerId);
+                    $matchTask->setWeek($week);
                     $objectManager->persist($matchTask);
                     $objectManager->flush();
 
                     if ($duration === DeveloperService::WEEKLY_DEVELOPER_DURATION) {
-                        continue;
+                        $duration = 0;
+                        $week++;
                     }
 
                 } elseif ($duration > DeveloperService::WEEKLY_DEVELOPER_DURATION) {

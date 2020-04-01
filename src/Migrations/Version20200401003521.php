@@ -22,8 +22,8 @@ final class Version20200401003521 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE developer (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE match_task (id INT AUTO_INCREMENT NOT NULL, task_id INT NOT NULL, developer_id INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE developer (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL,PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE match_task (id INT AUTO_INCREMENT NOT NULL, task_id INT NOT NULL, week INT NOT NULL,  developer_id INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE task (id INT AUTO_INCREMENT NOT NULL, level INT NOT NULL, duration INT NOT NULL, type_id VARCHAR(255) NOT NULL, PRIMARY KEY(id), UNIQUE(type_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
 
         $this->addSql('ALTER TABLE match_task ADD FOREIGN KEY (developer_id) REFERENCES developer(id)');

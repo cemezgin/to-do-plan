@@ -12,3 +12,8 @@ match_tasks:
   path:       /api/v1/tasks/match
   controller: App\Controller\MatchTaskController::match
   methods:    POST
+
+match_tasks_get:
+  path:       /api/v1/tasks
+  controller: App\Controller\MatchTaskController::index
+  methods:    GET

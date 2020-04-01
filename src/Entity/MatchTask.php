@@ -18,17 +18,30 @@ class MatchTask
 
     /**
      * @ORM\Column(type="integer")
-     * @ORM\OneToOne(targetEntity="Task")
-     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
      */
     private $task_id;
 
     /**
      * @ORM\Column(type="integer")
-     * @ORM\OneToOne(targetEntity="Developer")
-     * @ORM\JoinColumn(name="developer_id", referencedColumnName="id")
+     */
+    private $week;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Task", mappedBy="id")
+     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     */
+    private $task;
+
+    /**
+     * @ORM\Column(type="integer")
      */
     private $developer_id;
+//
+//    /**
+//     * @ORM\OneToOne(targetEntity="Developer", inversedBy="id")
+//     * @ORM\JoinColumn(name="developer_id", referencedColumnName="id")
+//     */
+//    private $developer;
 
     public function getId(): ?int
     {
@@ -43,6 +56,30 @@ class MatchTask
     public function setTaskId(int $task_id): self
     {
         $this->task_id = $task_id;
+
+        return $this;
+    }
+
+    public function getTask()
+    {
+        return $this->task;
+    }
+
+    public function setTask($task): self
+    {
+        $this->task = $task;
+
+        return $this;
+    }
+
+    public function getWeek(): ?int
+    {
+        return $this->week;
+    }
+
+    public function setWeek(int $week): self
+    {
+        $this->week = $week;
 
         return $this;
     }
