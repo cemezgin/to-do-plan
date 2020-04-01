@@ -38,18 +38,18 @@ class MatchTaskController extends AbstractController
      */
     public function index()
     {
-        $repo = $this->getDoctrine()->getManager()->getRepository(MatchTask::class);
-        $list = $repo->getWithRelations();
+
+        $list = $this->matchTaskService->matchDuration($this->getDoctrine()->getManager());
 
         $response = [];
-        foreach ($list as $value) {
-            $response[] = [
-                'task_type' => $value->getTask()->getTypeId(),
-                'duration' => $value->getTask()->getDuration(),
-                'developer_id' => $value->getDeveloperId()
-            ];
-        }
+//        foreach ($list as $value) {
+//            $response[] = [
+//                'task_type' => $value->getTask()->getTypeId(),
+//                'duration' => $value->getTask()->getDuration(),
+//                'developer_id' => $value->getDeveloperId()
+//            ];
+//        }
 
-        return new JsonResponse($response);
+        return new JsonResponse($list);
     }
 }

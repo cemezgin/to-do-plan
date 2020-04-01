@@ -24,15 +24,4 @@ class MatchTaskRepository extends ServiceEntityRepository
         parent::__construct($registry, MatchTask::class);
     }
 
-    /**
-     * @return MatchTask[]
-     */
-    public function getWithRelations()
-    {
-        return $this->createQueryBuilder('m')
-            ->join(Task::class,'t')
-            ->orderBy('m.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
 }

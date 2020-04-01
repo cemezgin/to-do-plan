@@ -33,9 +33,7 @@ class ShowPlanCommand extends Command
         try {
             $client  = new CurlHttpClient();
             $response = $client->request('GET', 'http://127.0.0.1:8000/api/v1/tasks');
-            foreach ($response->toArray() as $value) {
-                echo json_encode($value). PHP_EOL;
-            }
+            var_dump($response->toArray());
 
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

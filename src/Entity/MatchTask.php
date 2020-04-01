@@ -26,11 +26,11 @@ class MatchTask
      */
     private $week;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Task", mappedBy="id")
-     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
-     */
-    private $task;
+//    /**
+//     * @ORM\OneToOne(targetEntity="Task", mappedBy="id")
+//     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+//     */
+//    private $task;
 
     /**
      * @ORM\Column(type="integer")
@@ -56,18 +56,6 @@ class MatchTask
     public function setTaskId(int $task_id): self
     {
         $this->task_id = $task_id;
-
-        return $this;
-    }
-
-    public function getTask()
-    {
-        return $this->task;
-    }
-
-    public function setTask($task): self
-    {
-        $this->task = $task;
 
         return $this;
     }
