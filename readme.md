@@ -29,6 +29,20 @@ php bin/console app:show-plan
 ```
 [GET] http://127.0.0.1:8000/api/v1/tasks
 ```
+#### Example Output
+```
+{
+"1":[
+     {
+       "task_id":48,
+       "developer_id":1,
+       "type_id":"Business Task 47",
+       "duration":12,
+       "week":1
+      }
+     ]
+ }
+```
 #### Serve
 ```
 symfony serve
